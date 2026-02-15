@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="images/favicon.ico">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Portafolio y servicios de desarrollo web y móvil.">
+	<title>BXME Dev</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header class="navbar">
+		<div class="brand">BXME Studio</div>
+		<nav class="nav-links">
+			<a href="#servicios">Servicios</a>
+			<a href="#proyectos">Proyectos</a>
+			<a href="#contacto" class="pill">Contactar</a>
+		</nav>
+	</header>
+
+	<main>
+		<section class="hero">
+			<div class="hero__content">
+                <h1>BxME Dev & Fix</h1>
+                <h4 class="lade">By Leonel Mendoza</h4>
+				<p class="eyebrow">Desarrollo full stack · Web · Apps · Herramientas</p>
+				<h1>Mejorar tu dia a dia con tecnologia y automatización.</h1>
+				<p class="lede">Modernizamos tus actividades cotidianas para una mejor eficiencia con código mantenible, arquitectura clara y un diseño que inspira confianza.</p>
+				<div class="hero__actions">
+					<a class="btn primary" href="#contacto">Agendar llamada</a>
+					<a class="btn ghost" href="#proyectos">Ver proyectos</a>
+				</div>
+				<div class="hero__badges">
+					<span>Automatizacion</span>
+					<span>Modernizacion</span>
+					<span>Optimizacion</span>
+				</div>
+			</div>
+			<div class="hero__visual">
+				<div class="hero__image">
+					<img src="images/letras_blancas.png" alt="Proyecto reciente o mockup" loading="lazy">
+				</div>
+			</div>
+		</section>
+
+		<section id="servicios" class="section section--services">
+			<div class="section__header">
+				<p class="eyebrow">Mas de nosotros</p>
+				<h2>Servicios listos para producción</h2>
+				<p class="muted">Diseño, arquitectura y desarrollo con foco en performance, seguridad y escalabilidad.</p>
+			</div>
+			<div class="cards">
+				<article class="card">
+					<div class="chip">Diseños Web</div>
+					<h3>Productos web a medida</h3>
+					<p>Landing pages, dashboards y PWAs con tecnologías modernas, SEO técnico y analítica lista.</p>
+					<ul>
+						<li>Next.js / React</li>
+						<li>Optimización Core Web Vitals</li>
+						<li>Diseño UI coherente</li>
+					</ul>
+				</article>
+				<article class="card">
+					<div class="chip">Aplicaciones</div>
+					<h3>Backends y APIs</h3>
+					<p>APIs seguras y documentadas, integraciones con terceros y despliegues automatizados.</p>
+					<ul>
+						<li>Node.js / Express / Nest</li>
+						<li>Autenticación y seguridad</li>
+						<li>CI/CD y observabilidad</li>
+					</ul>
+				</article>
+				<article class="card">
+					<div class="chip">Automatizaciones</div>
+					<h3>Eficiencia y productividad</h3>
+					<p>Implementamos soluciones automatizadas para optimizar procesos, reducir errores y aumentar prodcutividad.</p>
+					<ul>
+						<li>Auditoría y roadmaps</li>
+						<li>Refactors guiados</li>
+						<li>Coaching de equipo</li>
+					</ul>
+				</article>
+			</div>
+		</section>
+
+		<section id="proyectos" class="section section--alt">
+			<div class="section__header">
+				<p class="eyebrow">Trabajo reciente</p>
+				<h2>Inventario Simple v1.0</h2>
+				<p class="muted">Nuestro primer proyecto enfocado en automatizar procesos de facturacion, compras y ventas.</p>
+			</div>
+			<div class="projects">
+				<article class="project">
+					<div class="project__meta">
+						<span class="chip">Funciones</span>
+						<span class="pill">Web + Local</span>
+					</div>
+					<h3>Control y agilización</h3>
+					<p>Estructura de datos optimizada para control de inventario, facturación mucho mas rapida y sencilla, gestion de usuarios para poder manipular el inventario y registrar cada una de las entradas y salidas.</p>
+					<div class="project__stats">
+						<div><strong>+42% </strong><span>Ampliacion en servicios</span></div>
+						<div><strong>-68% </strong><span>Tiempos de operacion</span></div>
+					</div>
+				</article>
+				<div class="projects-carousel" aria-label="Galería de proyectos">
+					<button class="carousel-btn prev" type="button" aria-label="Proyecto anterior">‹</button>
+					<div class="carousel-track" role="list">
+						<div class="carousel-slide active" role="listitem">
+							<img src="images/proyecto1.png" alt="Vista de proyecto 1" loading="lazy">
+						</div>
+						<div class="carousel-slide" role="listitem">
+							<img src="images/proyecto2.png" alt="Vista de proyecto 2" loading="lazy">
+						</div>
+						<div class="carousel-slide" role="listitem">
+							<img src="images/proyecto3.png" alt="Vista de proyecto 3" loading="lazy">
+						</div>
+					</div>
+					<button class="carousel-btn next" type="button" aria-label="Proyecto siguiente">›</button>
+					<div class="carousel-dots" role="tablist" aria-label="Cambiar imagen">
+						<button class="dot active" type="button" aria-label="Ir a imagen 1" data-index="0"></button>
+						<button class="dot" type="button" aria-label="Ir a imagen 2" data-index="1"></button>
+						<button class="dot" type="button" aria-label="Ir a imagen 3" data-index="2"></button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="contacto" class="section contact">
+			<div class="section__header">
+				<p class="eyebrow">Hablemos</p>
+				<h2>Cuéntame sobre tu proyecto</h2>
+				<p class="muted">Respondo en menos de 24 horas. Elige correo o WhatsApp.</p>
+			</div>
+			<div class="contact__grid">
+				<form id="contact-form" class="form">
+					<label>Nombre
+						<input type="text" name="name" placeholder="Tu nombre" required>
+					</label>
+					<label>Correo
+						<input type="email" name="email" placeholder="tu@correo.com" required>
+					</label>
+					<label>Mensaje
+						<textarea name="message" rows="4" placeholder="¿Qué necesitas?" required></textarea>
+					</label>
+					<div class="form__actions">
+						<button type="submit" class="btn primary">Enviar correo</button>
+					</div>
+					<p class="form__status" aria-live="polite"></p>
+				</form>
+
+				<div class="contact__card contact__card--wa">
+					<h3>Envíame un mensaje</h3>
+					<p>Abre WhatsApp y cuéntame qué necesitas. Respondo rápido.</p>
+					<a class="btn wa-btn" href="https://wa.me/50232557454?text=Hola%20quiero%20hablar%20sobre%20un%20proyecto" target="_blank" rel="noopener">
+						<span class="wa-icon" aria-hidden="true"></span>
+						<span>Mensaje por WhatsApp</span>
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<p>BXME Studio · Desarrollo web y móvil</p>
+		<div class="footer__links">
+			<a href="https://www.instagram.com/bxm_dev" target="_blank" rel="noopener">Instagram</a>
+			<a href="https://wa.me/+50232557454" target="_blank" rel="noopener">WhatsApp</a>
+		</div>
+	</footer>
+
+	<script src="script.js"></script>
+</body>
+</html>
