@@ -150,4 +150,63 @@ document.addEventListener("DOMContentLoaded", () => {
 		const img = slide.querySelector("img");
 		img?.addEventListener("click", () => openLightbox(img.src, img.alt));
 	});
+
+	// Carrusel de capturas interactivo
+	const captureImg = document.getElementById("capture-img");
+	const captureTabs = Array.from(document.querySelectorAll(".capture-tab"));
+
+	if (captureTabs.length) {
+		captureTabs.forEach((tab) => {
+			tab.addEventListener("click", () => {
+				// Remover clase active de todos
+				captureTabs.forEach((t) => t.classList.remove("active"));
+				// Agregar active al clickeado
+				tab.classList.add("active");
+				// Cambiar imagen con fade
+				const imgSrc = tab.dataset.img;
+				const imgAlt = tab.dataset.alt || "Captura de pantalla";
+				if (captureImg) {
+					// Fade out
+					captureImg.style.opacity = "0";
+					captureImg.style.transition = "opacity 0.25s ease-out";
+					
+					setTimeout(() => {
+						// Cambiar imagen
+						captureImg.src = imgSrc;
+						captureImg.alt = imgAlt;
+						// Fade in
+						captureImg.style.opacity = "1";
+						captureImg.style.transition = "opacity 0.4s ease-in";
+					}, 250);
+				}
+			});
+		});
+	}
+
+	// Click en imagen del carrusel de capturas para ampliar
+	captureImg?.addEventListener("click", () => {
+		if (captureImg.src) {
+			openLightbox(captureImg.src, captureImg.alt);
+		}
+	});
+
+	// Scroll animation para cards de info
+	const cardWrappers = document.querySelectorAll(".card-wrapper");
+	const observerOptions = {
+		threshold: 0.1,
+		rootMargin: "0px 0px -100px 0px"
+	};
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add("visible");
+				observer.unobserve(entry.target);
+			}
+		});
+	}, observerOptions);
+
+	cardWrappers.forEach((wrapper) => {
+		observer.observe(wrapper);
+	});
 });

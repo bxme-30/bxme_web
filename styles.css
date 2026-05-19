@@ -243,6 +243,10 @@ a {
 	z-index: 1;
 }
 
+#info::before {
+	display: none;
+}
+
 .section--services {
 	position: relative;
 	padding: 0 8vw 70px;
@@ -269,6 +273,12 @@ a {
 	font-size: clamp(26px, 4vw, 36px);
 }
 
+.card h3 {
+	font-size: 24px;
+	font-weight: 700;
+	margin: 0;
+}
+
 .muted {
 	color: var(--muted);
 	max-width: 720px;
@@ -281,18 +291,85 @@ a {
 	margin-top: 26px;
 }
 
+#info .cards {
+	grid-template-columns: 1fr;
+	max-width: 1400px;
+	gap: 24px;
+}
+
+.card-wrapper {
+	display: flex;
+	gap: 100px;
+	align-items: center;
+	justify-content: flex-start;
+	opacity: 0;
+	transform: translateX(-40px);
+	filter: blur(8px);
+}
+
+.card-wrapper.visible {
+	animation: wrapperEnter 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.card-wrapper-1.visible {
+	animation-delay: 0s;
+}
+
+.card-wrapper-2.visible {
+	animation-delay: 0.2s;
+}
+
+.card-wrapper-3.visible {
+	animation-delay: 0.4s;
+}
+
+@keyframes wrapperEnter {
+	0% {
+		opacity: 0;
+		transform: translateX(-40px);
+		filter: blur(8px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+		filter: blur(0);
+	}
+}
+
 .card {
 	background: var(--surface);
 	border: 1px solid var(--border);
 	border-radius: 18px;
-	padding: 22px;
+	padding: 28px;
 	display: grid;
 	gap: 12px;
 	box-shadow: var(--shadow);
-	transition: transform 0.15s ease, box-shadow 0.25s ease, border 0.2s ease, background 0.25s ease;
+	transition: transform 0.2s ease, box-shadow 0.3s ease, border 0.2s ease, background 0.3s ease;
+	flex: 1;
+	min-width: 0;
 }
 
-.card:hover {
+.card-content {
+	display: grid;
+	gap: 12px;
+	flex: 1;
+	min-width: 0;
+}
+
+.card-image {
+	width: 300px;
+	height: 300px;
+	min-width: 300px;
+	min-height: 300px;
+	object-fit: cover;
+	border-radius: 12px;
+	transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+	filter: drop-shadow(0 20px 40px rgba(27, 91, 255, 0.3)) drop-shadow(0 0 60px rgba(27, 91, 255, 0.2));
+}
+
+.card:hover,
+.card:focus-within,
+.card-wrapper.visible .card {
 	background: linear-gradient(160deg, rgba(27, 91, 255, 0.18) 0%, rgba(11, 16, 33, 0.85) 55%, rgba(10, 16, 33, 0.95) 100%);
 	border-color: rgba(74, 163, 255, 0.35);
 	box-shadow: 0 18px 50px rgba(27, 91, 255, 0.25);
@@ -303,12 +380,13 @@ a {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	padding: 8px 12px;
+	padding: 12px 20px;
 	border-radius: 12px;
 	background: rgba(74, 163, 255, 0.12);
 	color: var(--primary-2);
 	border: 1px solid var(--border);
-	font-weight: 600;
+	font-weight: 700;
+	font-size: 18px;
 }
 
 .card ul {
@@ -330,7 +408,7 @@ a {
 	background: transparent;
 	border-top: none;
 	border-bottom: none;
-	padding-bottom: 0;
+	padding-bottom: 70px;
 	overflow: visible;
 }
 
@@ -359,6 +437,14 @@ a {
 	background: rgba(255, 255, 255, 0.02);
 	text-align: center;
 	font-weight: 600;
+}
+
+.placeholder-img img {
+	display: block;
+	max-width: 100%;
+	max-height: 280px;
+	object-fit: contain;
+	object-position: center;
 }
 
 .project {
@@ -724,6 +810,138 @@ a {
 		animation: none;
 		filter: blur(36px);
 	}
+
+	.card-wrapper {
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.card {
+		width: 100%;
+	}
+
+	.card-image {
+		width: 200px;
+		height: 200px;
+		min-width: 200px;
+		min-height: 200px;
+	}
+
+	.footer {
+		flex-direction: column;
+		gap: 10px;
+		text-align: center;
+	}
+}
+
+/* Carrusel de capturas interactivo */
+.capture-carousel {
+	display: grid;
+	gap: 28px;
+	margin-top: 28px;
+}
+
+.capture-tabs {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+	gap: 12px;
+}
+
+.capture-tab {
+	padding: 18px 20px;
+	border: 1px solid rgba(74, 163, 255, 0.25);
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.03);
+	color: var(--muted);
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	font-size: 16px;
+	text-align: center;
+}
+
+.capture-tab:hover {
+	border-color: rgba(74, 163, 255, 0.5);
+	background: linear-gradient(160deg, rgba(27, 91, 255, 0.18) 0%, rgba(11, 16, 33, 0.85) 60%, rgba(11, 16, 33, 0.95) 100%);
+	color: var(--primary-2);
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(27, 91, 255, 0.18);
+}
+
+.capture-tab.active {
+	background: linear-gradient(120deg, var(--primary) 0%, var(--primary-2) 100%);
+	border-color: rgba(74, 163, 255, 0.65);
+	color: #0a0f21;
+	box-shadow: 0 10px 28px rgba(27, 91, 255, 0.3);
+	transform: translateY(-3px);
+}
+
+.capture-display {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 380px;
+	max-width: 100%;
+	margin: 0 auto;
+	border-radius: 16px;
+	padding: 20px;
+	overflow: hidden;
+}
+
+#capture-img {
+	max-width: 100%;
+	max-height: 500px;
+	object-fit: contain;
+	object-position: center;
+	display: block;
+	border-radius: 10px;
+	animation: captureFade 0.5s ease-in-out;
+	cursor: pointer;
+	transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+#capture-img:hover {
+	transform: scale(1.02);
+	filter: brightness(1.05);
+}
+
+@keyframes captureFade {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@media (max-width: 720px) {
+	.navbar {
+		flex-direction: column;
+		gap: 12px;
+		backdrop-filter: blur(6px);
+	}
+
+	.hero {
+		padding-top: 50px;
+	}
+
+	.hero__actions,
+	.form__actions {
+		width: 100%;
+	}
+
+	.btn {
+		width: 100%;
+	}
+
+	.section::before,
+	.section--services::before,
+	.section--alt::before {
+		animation: none;
+		filter: blur(36px);
+	}
+
+
 
 	.footer {
 		flex-direction: column;
